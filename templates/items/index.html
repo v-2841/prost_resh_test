@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+  Товары
+{% endblock title %}
+{% block content %}
+  <h1>Товары</h1>
+  {% for item in items %}
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.description }}</p>
+    <p>{{ item.price }}</p>
+    <a href="{% url 'items:item' item.id %}">Подробнее</a>
+    {% if not forloop.last %}<hr />{% endif %}
+  {% endfor %}
+{% endblock content %}
