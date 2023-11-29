@@ -92,7 +92,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/var/www/prost_resh_test/static/'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -101,4 +101,4 @@ INTERNAL_IPS = ['127.0.0.1']
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'stripe_secret_key')
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'stripe_public_key')
 
-CSRF_TRUSTED_ORIGINS = ["http://31.42.189.165:8080/"]
+CSRF_TRUSTED_ORIGINS = ['http://31.42.189.165:8080']

@@ -3,6 +3,12 @@
   Товары
 {% endblock title %}
 {% block content %}
+  <p>Для тестирования админки:</p>
+  <ul>
+    <li><strong>Логин:</strong> test</li>
+    <li><strong>Пароль:</strong> Testtest00</li>
+  </ul>
+  <hr>
   <h1>Товары</h1>
   {% for item in items %}
     <h3>{{ item.name }}</h3>
