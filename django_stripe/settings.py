@@ -59,8 +59,12 @@ WSGI_APPLICATION = "django_stripe.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'dbname'),
+        'USER': os.getenv('POSTGRES_USER', 'django_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', 5432)
     }
 }
 
@@ -88,6 +92,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -95,3 +100,5 @@ INTERNAL_IPS = ['127.0.0.1']
 
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', 'stripe_secret_key')
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'stripe_public_key')
+
+CSRF_TRUSTED_ORIGINS = ["http://31.42.189.165:8080/"]

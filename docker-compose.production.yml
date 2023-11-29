@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  backend:
+    image: vita2841/prost_resh_test_backend
+    env_file: .env
+    depends_on:
+      - db
+    volumes:
+      - static:/app/static/
+  gateway:
+    image: vita2841/prost_resh_test_gateway
+    ports:
+      - 8000:80
+    volumes:
+      - static:/static/
