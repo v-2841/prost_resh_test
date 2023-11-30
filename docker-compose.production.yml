@@ -20,6 +20,6 @@ services:
   gateway:
     image: vita2841/prost_resh_test_gateway
     ports:
-      - 8000:80
+      - 8022:80
     volumes:
       - static:/static/
