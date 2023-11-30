@@ -55,7 +55,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        password: ${{ secrets.SSH_PASSWORD }}
         source: "docker-compose.production.yml"
         target: "prost_resh_test_docker"
     - name: Executing remote ssh commands to deploy
@@ -63,7 +63,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
+        password: ${{ secrets.SSH_PASSWORD }}
         script: |
           cd prost_resh_test_docker
           sudo docker compose -f docker-compose.production.yml pull
